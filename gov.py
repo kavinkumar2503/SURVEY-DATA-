@@ -304,4 +304,5 @@ def chat():
     return jsonify({"reply": "AI is not configured. Set OPENAI_API_KEY or run Ollama with a model (e.g., OLLAMA_MODEL=llama3)."})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)
